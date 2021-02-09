@@ -105,7 +105,7 @@ The initial reward is `0`. As the result of the current `action`, if you generat
 
 The action that the Agent has to take at each `step` is *"what pass to run next?"*. Hence, the actions are discrete.
 
-There are XXX discrete actions available, as [documented](https://facebookresearch.github.io/CompilerGym/llvm/index.html#action-space). An example of an action is the ask the compiler to run `dead-code elimination`, where the compiler removes code that has no effect on the output of the program.
+There are XXX discrete actions available, as [documented](https://facebookresearch.github.io/CompilerGym/llvm/index.html#action-space). An example of an action is to ask the compiler to run `dead-code elimination`, where the compiler removes code that has no effect on the output of the program.
 
 To get an intuitive sense of the action space, we compute the rewards that are attributed to each action (while the agent runs over the cBench dataset).
 
