@@ -9,7 +9,7 @@ With our package, building ML models for compiler research problems is as easy a
 - **Datasets:** wraps real world programs (C++ programs, TensorFlow programs, programs from Github, etc.) and a mainstream compiler (LLVM).
 - **Tasks and Actions:** interfaces the LLVM compiler for one compiler research problem :  *phase ordering* (more to come). It has a large discrete action space
 - **Representations:** provides raw representations of progams, as well as multiple kinds of pre-computed features: you can focus on end-to-end deep learning or features + boosted trees.
-- **Rewards:** provides appropriate reward functions and loss functions for one end-task *code size reduction*, with more to come
+- **Rewards:** provides appropriate reward functions and loss functions for one end-task, *code size reduction*, with more to come
 - **Testing:** provides a validation process for correctness of results
 - **Baselines:** provides some baselines and reports their performance
 - **Competition:** provides a leaderboard for you to submit your results
@@ -52,7 +52,7 @@ Github | random code from github with diverse code complexity | 50,708
 Linux | | 13,920
 PolyBench | kernel-space programs | 27
 MIBench |  | 40
-NAS Parallel Benchmarks | programms with parallelism | 122
+NAS Parallel Benchmarks | programs with parallelism | 122
 OpenCV | programs using OpenCV | 442
 TensorFlow | random tensorflow graphs | 1985
 
