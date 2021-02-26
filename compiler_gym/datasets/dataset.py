@@ -8,11 +8,54 @@ import os
 import shutil
 import tarfile
 from pathlib import Path
-from typing import List, NamedTuple, Optional, Union
+from typing import Dict, Iterable, List, NamedTuple, Optional, Union
 
 import fasteners
 
+from compiler_gym.datasets.benchmark import Benchmark
 from compiler_gym.util.download import download
+
+
+class Dataset(object):
+    def __init__(self, name: str, protocol: str = "benchmark://"):
+        self._name = name
+        self._protocol = protocol
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def protocol(self) -> str:
+        return self._protocol
+
+    def install(path_to_use: Path):
+        pass
+
+    def benchmark_ids(self) -> Iterable[str]:
+        """Return an iterator over benchmark IDs that must be consistent
+        across runs.
+
+        The order of the IDs must be consistent across runs.
+        """
+        raise NotImplementedError("abstract class")
+
+    def benchmarks(self) -> Iterable[Benchmark]:
+        """Possibly lazy list of benchmarks."""
+        # Default implementation. Subclasses may which to provide an optimized
+        # version.
+        for benchmark_id in self.benchmark_ids():
+            yield self.benchmark(benchmark_id)
+
+    def benchmark(self, uri: Optional[str] = None) -> Benchmark:
+        """
+        :raise LookupError: If :code:`uri` is provided but does not exist.
+        """
+        raise NotImplementedError("abstract class")
+
+
+def build_dataset_dispatch_table(datasets: Iterable[Dataset]) -> Dict[str, Dataset]:
+    return {f"{dataset.protocol}://{dataset.name}" for dataset in datasets}
 
 
 class LegacyDataset(NamedTuple):
