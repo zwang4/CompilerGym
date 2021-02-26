@@ -19,7 +19,7 @@ from typing import Callable, Dict, List, NamedTuple, Optional
 
 import fasteners
 
-from compiler_gym.datasets.dataset import Dataset
+from compiler_gym.datasets.dataset import LegacyDataset
 from compiler_gym.util.download import download
 from compiler_gym.util.runfiles_path import cache_path, runfiles_path, site_data_path
 from compiler_gym.util.timer import Timer
@@ -42,7 +42,7 @@ else:
     _COMPILE_ARGS = []
 
 LLVM_DATASETS = [
-    Dataset(
+    LegacyDataset(
         name="blas-v0",
         url="https://dl.fbaipublicfiles.com/compiler_gym/llvm_bitcodes-10.0.0-blas-v0.tar.bz2",
         license="BSD 3-Clause",
@@ -52,7 +52,7 @@ LLVM_DATASETS = [
         size_bytes=3969036,
         sha256="e724a8114709f8480adeb9873d48e426e8d9444b00cddce48e342b9f0f2b096d",
     ),
-    Dataset(
+    LegacyDataset(
         name="cBench-v0",
         url="https://dl.fbaipublicfiles.com/compiler_gym/llvm_bitcodes-10.0.0-cBench-v0-macos.tar.bz2",
         license="BSD 3-Clause",
@@ -63,7 +63,7 @@ LLVM_DATASETS = [
         sha256="072a730c86144a07bba948c49afe543e4f06351f1cb17f7de77f91d5c1a1b120",
         platforms=["macos"],
     ),
-    Dataset(
+    LegacyDataset(
         name="cBench-v0",
         url="https://dl.fbaipublicfiles.com/compiler_gym/llvm_bitcodes-10.0.0-cBench-v0-linux.tar.bz2",
         license="BSD 3-Clause",
@@ -74,7 +74,7 @@ LLVM_DATASETS = [
         sha256="9b5838a90895579aab3b9375e8eeb3ed2ae58e0ad354fec7eb4f8b31ecb4a360",
         platforms=["linux"],
     ),
-    Dataset(
+    LegacyDataset(
         name="github-v0",
         url="https://dl.fbaipublicfiles.com/compiler_gym/llvm_bitcodes-10.0.0-github-v0.tar.bz2",
         license="CC BY 4.0",
@@ -84,7 +84,7 @@ LLVM_DATASETS = [
         size_bytes=725974100,
         sha256="880269dd7a5c2508ea222a2e54c318c38c8090eb105c0a87c595e9dd31720764",
     ),
-    Dataset(
+    LegacyDataset(
         name="linux-v0",
         url="https://dl.fbaipublicfiles.com/compiler_gym/llvm_bitcodes-10.0.0-linux-v0.tar.bz2",
         license="GPL-2.0",
@@ -94,7 +94,7 @@ LLVM_DATASETS = [
         size_bytes=516031044,
         sha256="a1ae5c376af30ab042c9e54dc432f89ce75f9ebaee953bc19c08aff070f12566",
     ),
-    Dataset(
+    LegacyDataset(
         name="mibench-v0",
         url="https://dl.fbaipublicfiles.com/compiler_gym/llvm_bitcodes-10.0.0-mibench-v0.tar.bz2",
         license="BSD 3-Clause",
@@ -104,7 +104,7 @@ LLVM_DATASETS = [
         size_bytes=238480,
         sha256="128c090c40b955b99fdf766da167a5f642018fb35c16a1d082f63be2e977eb13",
     ),
-    Dataset(
+    LegacyDataset(
         name="npb-v0",
         url="https://dl.fbaipublicfiles.com/compiler_gym/llvm_bitcodes-10.0.0-npb-v0.tar.bz2",
         license="NASA Open Source Agreement v1.3",
@@ -114,7 +114,7 @@ LLVM_DATASETS = [
         size_bytes=2287444,
         sha256="793ac2e7a4f4ed83709e8a270371e65b724da09eaa0095c52e7f4209f63bb1f2",
     ),
-    Dataset(
+    LegacyDataset(
         name="opencv-v0",
         url="https://dl.fbaipublicfiles.com/compiler_gym/llvm_bitcodes-10.0.0-opencv-v0.tar.bz2",
         license="Apache 2.0",
@@ -124,7 +124,7 @@ LLVM_DATASETS = [
         size_bytes=21903008,
         sha256="003df853bd58df93572862ca2f934c7b129db2a3573bcae69a2e59431037205c",
     ),
-    Dataset(
+    LegacyDataset(
         name="poj104-v0",
         url="https://dl.fbaipublicfiles.com/compiler_gym/llvm_bitcodes-10.0.0-poj104-v0.tar.bz2",
         license="BSD 3-Clause",
@@ -134,7 +134,7 @@ LLVM_DATASETS = [
         size_bytes=304207752,
         sha256="6254d629887f6b51efc1177788b0ce37339d5f3456fb8784415ed3b8c25cce27",
     ),
-    Dataset(
+    LegacyDataset(
         name="polybench-v0",
         url="https://dl.fbaipublicfiles.com/compiler_gym/llvm_bitcodes-10.0.0-polybench-v0.tar.bz2",
         license="BSD 3-Clause",
@@ -144,7 +144,7 @@ LLVM_DATASETS = [
         size_bytes=162624,
         sha256="968087e68470e5b44dc687dae195143000c7478a23d6631b27055bb3bb3116b1",
     ),
-    Dataset(
+    LegacyDataset(
         name="tensorflow-v0",
         url="https://dl.fbaipublicfiles.com/compiler_gym/llvm_bitcodes-10.0.0-tensorflow-v0.tar.bz2",
         license="Apache 2.0",
